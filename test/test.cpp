@@ -1,4 +1,4 @@
-#include "catch_almagamated.hpp"
+#include "catch_amalgamated.hpp"
 #include <iostream>
 
 // change if you choose to use a different header name
@@ -83,6 +83,17 @@ using namespace std;
 //   REQUIRE(actualOutput == expectedOutput);
 // }
 
+//quick makeGraph function to not copy paste the same code in every test case like a bum
+Graph makeGraph() {
+    Graph gee;
+    string edges = "data/edges.csv";
+    string classes = "data/classes.csv";
+    gee.loadEdges(edges);
+    gee.loadClasses(classes);
+    return gee; 
+}
+
+
 TEST_CASE("Test insertion func"){
   Graph guh = makeGraph(); //lol
   REQUIRE(guh.insert("Diya", 12341234, 19, {"COP3530", "MAC2311"}) == "successful");
@@ -114,7 +125,7 @@ TEST_CASE("Test removeClass func"){
   Graph guh = makeGraph(); //lol again again
   guh.insert("Diya", 12341234, 19, {"COP3530", "MAC2311"});
   guh.insert("Jerry", 12341235, 20, {"COP3530", "CDA3101"});
-  guh.insert("Matthew", 12341236, 55, {"CDA3101", "MAC2311"});
+  guh.insert("Matthew", 12341236, 22, {"CDA3101", "MAC2311"});
 
   REQUIRE(guh.removeClass("COP3530") == "2");
   REQUIRE(guh.removeClass("CDA3101") == "2");
@@ -126,9 +137,9 @@ TEST_CASE("Test the edges"){
   Graph guh = makeGraph(); //lol again again again
   REQUIRE(guh.checkEdgeStatus(1, 2) == "open");
   REQUIRE(guh.checkEdgeStatus(1, 999) == "DNE");
-  g.toggleEdgesClosure({{1, 2}});
+  guh.toggleEdgesClosure({{1, 2}});
   REQUIRE(guh.checkEdgeStatus(1, 2) == "closed");
-  g.toggleEdgesClosure({{1, 2}});
+  guh.toggleEdgesClosure({{1, 2}});
   REQUIRE(guh.checkEdgeStatus(1, 2) == "open");
   REQUIRE(guh.isConnected(1, 2) == "successful");
   REQUIRE(guh.isConnected(1, 1) == "successful");

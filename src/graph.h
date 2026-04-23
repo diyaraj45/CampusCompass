@@ -46,8 +46,8 @@ public:
     //gotta get your data from somewhere
     void addEdge(int a, int b, int weight);
     void addClass(ClassInformation info);
-    void loadEdges(string& filename);
-    void loadClasses(string& filename);
+    void loadEdges(const string& filename);
+    void loadClasses(const string& filename);
 
     //fix the parameters bruh
     string insert(string STUDENT_NAME, int STUDENT_ID, int RESIDENCE_LOCATION_ID, vector<string> CLASSCODE);

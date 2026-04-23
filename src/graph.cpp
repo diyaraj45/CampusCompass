@@ -10,7 +10,7 @@
 #include <queue>
 using namespace std;
 
-void Graph::loadClasses(string& filename) {
+void Graph::loadClasses(const string& filename) {
     ifstream file(filename);
     string line;
     getline(file, line); 
@@ -34,7 +34,7 @@ void Graph::addClass(ClassInformation info) {
     classes[info.classCode] = info;
 }
 
-void Graph::loadEdges(string& filename) {
+void Graph::loadEdges(const string& filename) {
     ifstream file(filename);
     string line;
     getline(file, line);

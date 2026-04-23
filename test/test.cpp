@@ -1,4 +1,4 @@
-#include <catch_almagamated.hpp>
+#include "catch_almagamated.hpp"
 #include <iostream>
 
 // change if you choose to use a different header name
